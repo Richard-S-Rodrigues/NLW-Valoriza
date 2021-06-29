@@ -2,20 +2,13 @@ import { Request, Response } from 'express'
 import { CreateUserService } from '../services/createUserService'
 
 export class CreateUserController {
-
 	async handle(req: Request, res: Response) {
-		const { name, email, admin } = req.body
+		const { name, email, password, admin } = req.body
 
-		try {
-			const createUserService = new CreateUserService()
+		const createUserService = new CreateUserService()
 
-			const user = await createUserService.execute({ name, email, admin })
+		const user = await createUserService.execute({ name, email, password, admin })
 
-			return res.json(user)
-
-		} catch(error) {
-			console.log(error)
-			return res.status(error.statusCode || 500).json({ message: error.message })
-		}
+		return res.json(user)
 	}
 }
