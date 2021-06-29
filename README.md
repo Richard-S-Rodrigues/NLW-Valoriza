@@ -24,3 +24,6 @@ This project was developed with:
 - Run `yarn typeorm migration:run` to create the database tables.
 - Run `yarn dev`.
 
+Don't forget to add a `.env` file to the root of the repository and include `JWT_SECRET_KEY=<key>` inside the file
+to provide the jsonwebtoken secret key.
+
